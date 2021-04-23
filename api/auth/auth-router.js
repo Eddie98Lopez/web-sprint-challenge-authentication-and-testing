@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const bcrypt = require('bcryptjs')
+const {usernameFree, userExists} = require('./auth-middleware')
 
-router.post('/register', (req, res) => {
+router.post('/register', usernameFree,(req, res) => {
   res.end('implement register, please!');
   /*
     IMPLEMENT
@@ -29,7 +31,7 @@ router.post('/register', (req, res) => {
   */
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', userExists,(req, res) => {
   res.end('implement login, please!');
   /*
     IMPLEMENT
